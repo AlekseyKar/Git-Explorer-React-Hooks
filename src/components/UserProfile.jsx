@@ -16,7 +16,6 @@ const Profile = ({ user }) => {
         <p className="text-sm">Followers: {user.followers}</p>
         <p className="text-sm">Following: {user.following}</p>
       </div>
-      {/* Add code for displaying other information here */}
     </div>
   );
 };

@@ -3,8 +3,6 @@ import axios from "axios";
 
 function SearchBar() {
   const [query, setQuery] = useState("");
-  const [user, setUser] = useState(null);
-  const [error, setError] = useState(null);
 
   const handleChange = (e) => {
     setQuery(e.target.value);
@@ -14,16 +12,15 @@ function SearchBar() {
     e.preventDefault();
     try {
       const response = await axios.get(`https://api.github.com/users/${query}`);
-      setUser(response.data);
-      setError(null);
+      console.log(response.data);
     } catch (err) {
-      setUser(null);
-      setError(err.message);
+      // Handle the error
     }
   };
 
   return (
-    <div className="bg-blue-500 sticky top-0 p-4">
+    // Section with light background and padding
+    <section className="bg-gray-100 p-4">
       <form onSubmit={handleSubmit} className="flex items-center">
         <input
           type="text"
@@ -35,9 +32,9 @@ function SearchBar() {
         <img
           src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
           alt="GitHub logo"
-          width="32"
-          height="32"
-          className="ml-2 mr-4"
+          width="42"
+          height="42"
+          className="ml-2 mr-2"
         />
         <button
           type="submit"
@@ -46,24 +43,7 @@ function SearchBar() {
           Search
         </button>
       </form>
-      {user && (
-        <div className="mt-4 flex">
-          <div className="mr-4">
-            <img
-              src={user.avatar_url}
-              alt={user.login}
-              width="64"
-              height="64"
-            />
-            <p className="mt-2 font-bold">{user.name}</p>
-            <p className="text-sm">Followers: {user.followers}</p>
-            <p className="text-sm">Following: {user.following}</p>
-          </div>
-          {/* Add code for displaying repositories and pagination here */}
-        </div>
-      )}
-      {error && <p className="mt-4 text-white font-bold">{error}</p>}
-    </div>
+    </section>
   );
 }
 

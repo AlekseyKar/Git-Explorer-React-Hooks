@@ -82,25 +82,19 @@ const App = () => {
   };
 
   return (
-    <div className="App container mx-auto p-4">
-      {/* Search bar component */}
+    <div className="App">
       <SearchBar getUserData={getUserData} />
 
-      {/* If there is an error, show component with error */}
       {error && <div className="error text-red-500 font-bold">{error}</div>}
 
-      {/* If there is loading, show component with loading indicator */}
       {loading && (
         <div className="loading text-blue-500 font-bold">Loading...</div>
       )}
 
-      {/* If there is user data, show user profile component */}
       {user && <UserProfile user={user} />}
 
-      {/* If there are repositories data, show repositories list component */}
       {repos.length > 0 && <Repositories repos={repos} />}
 
-      {/* If there are pagination data, show pagination component */}
       {totalPages > 0 && (
         <Pagination
           page={page}
