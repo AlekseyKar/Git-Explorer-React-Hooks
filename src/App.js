@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import SearchBar from "./components/SearchBar";
-import UserProfile from "./components/UserProfile";
-import Repositories from "./components/Repositories";
-import Pagination from "./components/Pagination";
+import SearchBar from "./components/SearchBar.jsx";
+import UserProfile from "./components/UserProfile.jsx";
+import Repositories from "./components/Repositories.jsx";
+import Pagination from "./components/Pagination.jsx";
 
 const App = () => {
   const [user, setUser] = useState(null);
