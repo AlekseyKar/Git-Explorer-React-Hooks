@@ -1,4 +1,4 @@
-export const content = ["./src/**/*. {css,postcss,js,jsx,ts,tsx}"];
+export const content = ["./src/**/*. {js,jsx,ts,tsx}"];
 export const theme = {
   extend: {},
 };

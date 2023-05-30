@@ -1,18 +1,24 @@
 import React from "react";
 
-function UserProfile({ user }) {
+const Profile = ({ user }) => {
   return (
-    <div className="user-profile">
-      {/* Аватар пользователя */}
-      <img src={user.avatar_url} alt={user.name} />
-      {/* Имя пользователя */}
-      <h2>{user.name}</h2>
-      {/* Количество подписок и подписчиков пользователя */}
-      <p>
-        Following: {user.following} | Followers: {user.followers}
-      </p>
+    <div className="profile flex">
+      {/* Avatar and name */}
+      <div className="mr-4">
+        <img
+          src={user.avatar_url}
+          alt={user.login}
+          width="64"
+          height="64"
+          className="rounded-full"
+        />
+        <p className="mt-2 font-bold">{user.name}</p>
+        <p className="text-sm">Followers: {user.followers}</p>
+        <p className="text-sm">Following: {user.following}</p>
+      </div>
+      {/* Add code for displaying other information here */}
     </div>
   );
-}
+};
 
-export default UserProfile;
+export default Profile;
