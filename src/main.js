@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import axios from "axios"; // Для запросов к API github
+import axios from "axios"; // запрос к API github
 
 function App() {
-  // Создаем состояние для строки поиска, пользователя и репозиториев
+  // Состояние поиска, пользователя и репозиториев
   const [query, setQuery] = useState("");
   const [user, setUser] = useState(null);
   const [repos, setRepos] = useState([]);
@@ -10,26 +10,23 @@ function App() {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
 
-  // Создаем функцию для обработки изменения строки поиска
+  // Обработка изменения строки поиска
   const handleChange = (e) => {
     setQuery(e.target.value);
   };
 
-  // Создаем функцию для обработки нажатия на кнопку поиска
+  // Обработка нажатия на кнопку поиска
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Предотвращаем перезагрузку страницы
+    e.preventDefault();
     try {
-      // Отправляем запрос к API github для получения информации о пользователе
       const userResponse = await axios.get(
         `https://api.github.com/users/${query}`
       );
-      // Сохраняем полученную информацию в состояние user
       setUser(userResponse.data);
       // Отправляем запрос к API github для получения списка репозиториев пользователя
       const reposResponse = await axios.get(
         `https://api.github.com/users/${query}/repos?page=${page}&per_page=10`
       );
-      // Сохраняем полученный список в состояние repos
       setRepos(reposResponse.data);
       // Вычисляем общее количество страниц для пагинации
       const totalRepos = userResponse.data.public_repos;
@@ -43,16 +40,14 @@ function App() {
     }
   };
 
-  // Создаем функцию для обработки изменения страницы пагинации
+  // Функция для обработки изменения страницы пагинации
   const handlePageChange = async (newPage) => {
     try {
-      // Обновляем состояние page
       setPage(newPage);
       // Отправляем запрос к API github для получения списка репозиториев пользователя на новой странице
       const reposResponse = await axios.get(
         `https://api.github.com/users/${query}/repos?page=${newPage}&per_page=10`
       );
-      // Сохраняем полученный список в состояние repos
       setRepos(reposResponse.data);
     } catch (error) {
       // Если произошла ошибка, выводим сообщение в консоль и очищаем состояние repos
