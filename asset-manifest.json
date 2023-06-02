@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Git-Explorer-React-Hooks/static/css/main.e373257b.css",
+    "main.js": "/Git-Explorer-React-Hooks/static/js/main.b43b7ad5.js",
+    "static/js/787.24b3d081.chunk.js": "/Git-Explorer-React-Hooks/static/js/787.24b3d081.chunk.js",
+    "index.html": "/Git-Explorer-React-Hooks/index.html",
+    "main.e373257b.css.map": "/Git-Explorer-React-Hooks/static/css/main.e373257b.css.map",
+    "main.b43b7ad5.js.map": "/Git-Explorer-React-Hooks/static/js/main.b43b7ad5.js.map",
+    "787.24b3d081.chunk.js.map": "/Git-Explorer-React-Hooks/static/js/787.24b3d081.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e373257b.css",
+    "static/js/main.b43b7ad5.js"
+  ]
+}
